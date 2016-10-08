@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2016 by aszilvas (http://jsbin.com/botino/4/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="színkódos óra" content="width=device-width">
+  <title>JS Bin</title>
+  <link href="https://fonts.googleapis.com/css?family=Lalezar" rel="stylesheet"> 
+<style id="jsbin-css">
+* { margin: 0; padding: 0; }
+#clock 
+{text-align: center;
+}
+html, body {
+  height: 100%;
+}
+
+#clock {
+  text-align: left;
+  position: relative;
+  top: 15%;
+  font-family: 'Lalezar', cursive;
+  font-size: 70px;
+  margin-top: -35px
+}
+
+
+</style>
+</head>
+<body>
+  <div id="clock">12:13:14</div>
+   
+<script id="jsbin-javascript">
+function colorClock (){
+var date = new Date();
+var hours = date.getHours();
+if (hours < 10){
+  hours = '0' + hours;
+}
+var minutes = date.getMinutes();
+if (minutes < 10){
+  minutes = '0' + minutes;
+}
+var seconds = date.getSeconds();
+if (seconds < 10){
+  seconds = '0' + seconds;
+}
+var clockFace = hours + "/" + minutes + "/" + seconds
+console.log(clockFace)
+document.getElementById('clock').innerHTML = clockFace;
+
+setTimeout(function() {
+    colorClock();
+  }, 1000);
+var hexColor = '#' + 'ff' + 'ff' + seconds;
+document.body.style.background = hexColor
+}
+
+colorClock();
+</script>
+</body>
+</html>
